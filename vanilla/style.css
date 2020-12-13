@@ -1,0 +1,40 @@
+/*Reset default styles*/
+button {
+  border: 0;
+  background-color: inherit;
+}
+body {
+  font-family: sans-serif;
+}
+.gram {
+  width: 400px;
+  margin: 0 auto;
+  border: 1px solid #eee;
+  padding: 1em;
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px #eee;
+}
+header {
+  display: flex;
+  padding-bottom: 1em;
+}
+.icon {
+  width: 25px;
+  height: 25px;
+}
+
+.icon img {
+  max-width: 100%;
+
+}
+
+.like-icon:hover {
+  fill: red;
+}
+
+.profile-pic {
+  object-fit:cover;
+  border-radius:50%;
+  width: 50px;
+  margin-right: 10px;
+}
