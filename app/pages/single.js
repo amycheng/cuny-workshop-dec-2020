@@ -4,10 +4,11 @@ import {default as PostHeader } from '../components/postHeader';
 import {default as Content } from '../components/content';
 import {default as Actions } from '../components/actions';
 import {default as Description } from '../components/description';
-
+import {default as CommentForm} from '../components/CommentForm';
 
 const singlePost = () => {
 const [postData, setPost] = useState('EMPTY');
+const [commentFormActve, toggleComment] = useState(false);
   useEffect(()=>{
     fetchData()
       .then((data)=>{
@@ -17,12 +18,14 @@ const [postData, setPost] = useState('EMPTY');
         console.log("something went wrong.")
       })
   },[])
-  if (postData !== "EMPTY") {
+  if (commentFormActve === true) {
+    return (<CommentForm handler={()=>toggleComment(false)} />)
+  } else if (postData !== "EMPTY") {
     return (
       <div className="gram">
       <PostHeader username={postData.username} userPic ={postData.userPic} />
       <Content image={postData.image}/>
-      <Actions />
+      <Actions commentHandler={()=>toggleComment(true)} />
       <Description username={postData.username} description={postData.description} />
       <style jsx>
         {`

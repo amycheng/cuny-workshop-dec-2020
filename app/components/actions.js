@@ -1,12 +1,12 @@
 import {useState} from 'react';
-export default function  actions (props) {
+export default function  actions ({commentHandler}) {
   const [liked, setLike] = useState(false);
   return (
     <div>
     <button onClick={()=>setLike(!liked)}>
       <img src={liked ? "/liked.svg" : "/unliked.svg"} />
     </button>
-    <button>
+    <button onClick={()=>commentHandler()}>
       <img src="/comment.svg" alt="" />
     </button>
     <style jsx>
@@ -14,8 +14,8 @@ export default function  actions (props) {
         button {
           width: 25px;
           height: 25px;
-  border: 0;
-  background-color: inherit;
+          border: 0;
+          background-color: inherit;
         }
 
         button img {
